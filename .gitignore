@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.DS_Store
+*.log
+
+# Virtual environment
+venv/
+env/
+.samvaad/
+*.egg-info/
+
+# Model & Data
+*.h5
+*.pkl
+*.db
+outputs/text_to_sign/templates/
+app_data/
+data/
+
+# Streamlit cache
+.streamlit/
+.cache/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# System files
+Thumbs.db
