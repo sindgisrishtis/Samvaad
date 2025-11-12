@@ -130,7 +130,7 @@ if mode.startswith("🖐️"):
         if st.button("🔁 Try Another"):
             st.session_state.practice_target = random.choice(list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
             st.session_state.pop("live_preds", None)
-            st.experimental_rerun()
+            st.rerun()
 
 
 # ---- Sign -> Text (user shows sign via webcam / upload) ----
@@ -247,7 +247,7 @@ else:
                     if st.button("🔁 Try Another"):
                         st.session_state.practice_target = random.choice(list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
                         st.session_state.pop("live_preds", None)
-                        st.experimental_rerun()
+                        st.rerun()
 
         else:
             st.info("Start the webcam above to practice. Hold the sign steady for the collection period.")
@@ -312,7 +312,7 @@ else:
                         st.success("Logged (forced). Click 'Try Another' to continue.")
                         if st.button("🔁 Try Another"):
                             st.session_state.practice_target = random.choice(list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
-                            st.experimental_rerun()
+                            st.rerun()
 
 # -------------------- Practice Summary --------------------
 st.markdown("<br><hr>", unsafe_allow_html=True)
