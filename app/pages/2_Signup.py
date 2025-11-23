@@ -47,7 +47,7 @@ with col2:
                     show_success(message)
                     st.success("✅ Account created successfully! You can now log in.")
                     st.balloons()
-                    st.switch_page("pages/1_🔐_Login.py")
+                    st.switch_page("pages/1_Login.py")
                 else:
                     show_error(message)
     
@@ -57,4 +57,4 @@ with col2:
     st.markdown("---")
     st.markdown("**Already have an account?**")
     if st.button("🚀 Login Here", use_container_width=True):
-        st.switch_page("pages/1_🔐_Login.py")
+        st.switch_page("pages/1_Login.py")
