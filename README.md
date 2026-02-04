@@ -1,149 +1,125 @@
-**🧏‍♂️ Samvaad – Indian Sign Language (ISL) Translator**
-A multi-modal AI-powered communication assistant bridging the gap between speech, text, and sign language.
+# 🧏‍♂️ Samvaad — Modular Multimodal Indian Sign Language Translator
 
-__🚀 About the Project__
-Samvaad is an AI-powered application that enables seamless communication with the Indian Deaf community by translating between:
-✔ Sign → Text
-✔ Sign → Speech
-✔ Text → Sign
-✔ Speech → Sign
-✔ Practice Mode for Learning ISL
-✔ Analytics Dashboard
-The system uses MediaPipe, Deep Learning, and Computer Vision to detect hand landmarks and classify them into Indian Sign Language alphabets and numbers.
+## Overview
+Samvaad is a **modular, AI-powered multimodal system** for real-time translation between **Indian Sign Language (ISL)**, **text**, and **speech**.  
+The project integrates **Computer Vision**, **Deep Learning**, and **Speech Processing** to enable inclusive communication between the Deaf community and non-signers.
 
-__🎯 Key Features__
-⭐ 1. Sign → Text
-Uses webcam or uploaded images
-Detects hand landmarks using MediaPipe
-Classifies static signs (A–Z, 0–9) using a trained deep learning model
-Displays recognized text with confidence score
-⭐ 2. Sign → Speech
-Converts recognized signs into natural audio
-Supports sentence mode
-Helps non-signers understand signers in real-time
-⭐ 3. Text → Sign
-Converts typed text into corresponding ISL sign visuals
-Displays dynamic landmark-based renderings
-Shows template dataset images (reference images)
-⭐ 4. Speech → Sign
-Converts live speech to text using SpeechRecognition
-Translates spoken words into sign images
-Supports both mic input and typed text
-⭐ 5. Practice Mode
-Two learning modes:
-Text → Sign: Identify the correct sign from an image
-Sign → Text: Show the correct sign via webcam or image upload
-Tracks accuracy, attempts, and corrections
-Stores performance in practice database
-⭐ 6. Analytics Dashboard
-Translation insights
-Confidence distribution graph
-Practice performance over time
-Recent activity timeline
-Achievements (Gamification)
+---
 
-__🧠 Tech Stack__
-🖥️ Frontend & UI
-Streamlit
-Custom CSS Themes
-Plotly
-🤖 AI / ML
-TensorFlow/Keras
-MediaPipe Hands
-OpenCV
-NumPy
-Scikit-learn
-🎤 Speech Processing
-SpeechRecognition
-PyAudio (or mic alternative)
-gTTS / pyttsx3 (Text-to-Speech)
-🗄️ Database
-SQLite
-CSV landmark datasets
-🔐 Auth
-bcrypt for password hashing
-SQLite-based user login system
-🧰 Dev Tools
-Git & GitHub
-Python 3.10
-Virtual Environments
-.gitignore included
+## Motivation
+Indian Sign Language (ISL) is widely used by the Deaf community, yet accessibility tools remain limited, fragmented, or one-directional.
 
-__📁 Project Structure__
+This project aims to:
+- Enable **bidirectional communication**
+- Support **real-time translation**
+- Provide **learning and practice tools**
+- Offer **analytics-driven insights**
+
+---
+
+## System & Hardware
+- **Input Modalities:** Webcam, Image Upload, Microphone, Text  
+- **Core Techniques:** Hand Landmark Detection, Deep Learning Classification  
+- **Deployment:** Local Streamlit Application  
+- **Hardware:** Standard laptop webcam and microphone  
+
+---
+
+## Translation Modes & Capabilities
+
+| Mode | Description |
+|-----|------------|
+| Sign → Text | Converts hand gestures into readable English text |
+| Sign → Speech | Converts recognized signs into natural speech |
+| Text → Sign | Displays corresponding ISL sign visuals |
+| Speech → Sign | Converts live speech into ISL signs |
+| Practice Mode | Interactive ISL learning |
+| Analytics Dashboard | Accuracy, confidence & usage tracking |
+
+---
+
+## Model & Training
+- **Landmarks:** MediaPipe Hands (21 × 3)
+- **Model:** Dense Neural Network with Dropout
+- **Classes:** 36 (A–Z + 0–9)
+- **Framework:** TensorFlow / Keras
+
+---
+
+## Processing Pipeline
+1. Frame capture (Webcam / Image)
+2. Hand landmark detection
+3. Feature normalization
+4. Model inference
+5. Output rendering (Text / Speech / Sign)
+
+---
+
+## Analytics Dashboard
+![Analytics Dashboard](screenshots/analytics.jpeg)
+
+Tracks:
+- Prediction confidence
+- Practice accuracy
+- User activity timeline
+- Learning progress
+
+---
+
+## Practice Mode
+![Practice Mode](screenshots/Practice%20Mode.jpeg)
+
+Supports:
+- Text → Sign
+- Sign → Text
+- Accuracy tracking
+- Attempt history
+
+---
+
+## Sign → Text Translation
+![Sign to Text Output](screenshots/Sign-Text%20Translator.jpeg)
+
+*Real-time ISL alphabet recognition using MediaPipe hand landmarks and a deep learning classifier.*
+
+---
+
+## Project Structure
 Samvaad/
-│── app/
-│   ├── app.py
-│   ├── utils/
-│   │   ├── auth.py
-│   │   ├── model_handler.py
-│   │   ├── theme.py
-│   ├── tools/
-│   │   ├── generate_sign_images.py
-│   │   ├── debug_hand_detect.py
-│   ├── pages/
-│   │   ├── 1_Login.py
-│   │   ├── 2_Signup.py
-│   │   ├── 3_Dashboard.py
-│   │   ├── 4_Sign_to_Text.py
-│   │   ├── 5_Sign_to_Speech.py
-│   │   ├── 6_Text_to_Sign.py
-│   │   ├── 7_Speech_to_Sign.py
-│   │   ├── 8_Analytics.py
-│   │   ├── 9_Practice.py
-│
-│── outputs/
-│   ├── final_model.h5
-│   ├── label_encoder.pkl
-│   ├── text_to_sign/templates/
-│
-│── data/
-│── README.md
-│── requirements.txt
+├── app/
+├── data/
+├── outputs/
+├── screenshots/
+├── requirements.txt
+└── README.md
 
-**⚙️ Installation & Setup__**
-1️⃣ Clone the Repository
-git clone https://github.com/sindgisrishtis/Samvaad.git
-cd Samvaad
-2️⃣ Create a Virtual Environment
-conda create -n samvaad python=3.10
-conda activate samvaad
-3️⃣ Install Dependencies
-pip install -r requirements.txt
-4️⃣ Run the App
-cd app
-streamlit run app.py
 
-__📦 Model__
-Trained on custom ISL alphabet dataset
-Uses hand landmark (21 points × 3 coordinates) extracted via MediaPipe
-Deep learning model (Dense + Dropout layers)
-Classifies 36 classes: A–Z + 0–9
+---
 
-__🧪 How it Works__
-Pipeline
-Frame capture (Image / Webcam)
-MediaPipe detects hand landmarks
-Landmarks normalized and fed into model
-Model predicts ISL letter
-Output converted to text/speech/sign accordingly
+## Limitations
+- Static gestures only
+- No sentence-level recognition
+- Lighting dependent
+- Local deployment
 
-__🚀 Future Enhancements__
-✔ Add continuous gesture recognition (dynamic signs)
-✔ Add sentence prediction using LSTM / Transformers
-✔ Deploy on cloud (Streamlit Cloud / HuggingFace Spaces / Azure)
-✔ Mobile app version (Flutter + TensorFlow Lite)
-✔ Add full ISL gestures beyond alphabets
+---
 
-**🤝 Contributing**
-Pull requests are welcome!
-For major changes, open an issue first to discuss what you’d like to improve.
+## Future Work
+- Continuous gesture recognition
+- LSTM / Transformer-based sentences
+- Mobile deployment (TFLite)
+- Cloud hosting
 
-**💬 Contact**
-👤 Srishti S Sindgi
-📧 Your email : sindgisrishti@gmail.com
-🔗 GitHub: https://github.com/sindgisrishtis
+---
 
-👤 Ujwala Shet
-📧 Your email : ujwalashet389@gmail.com
-🔗 GitHub: https://github.com/ujwalashet
+## Technologies Used
+Python, TensorFlow, MediaPipe, OpenCV, Streamlit, SpeechRecognition, SQLite
 
+---
+
+## Authors
+**Srishti Sindgi** 
+GitHub: https://github.com/sindgisrishtis
+
+**Ujwala Shet**
+GitHub: https://github.com/ujwalashet
