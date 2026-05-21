@@ -125,4 +125,4 @@ GitHub: https://github.com/sindgisrishtis
 GitHub: https://github.com/ujwalashet
 
 **Sanjana R**
-GitHub: https://github.com/Sanjana3201
+GitHub: https://github.com/r-sanjana
